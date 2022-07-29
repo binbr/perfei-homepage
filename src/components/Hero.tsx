@@ -1,4 +1,4 @@
-import React, { InputHTMLAttributes, useState } from 'react'
+import React, { useState } from 'react'
 import headerIllustrationLight from '../assets/images/header-illustration-light.svg'
 import headerIllustrationDark from '../assets/images/header-illustration-dark.svg'
 import heroIllustrationMediaLight from '../assets/images/hero-media-illustration-light.svg'
@@ -7,18 +7,6 @@ import heroMediaLight from '../assets/images/hero-media-light.svg'
 import heroMediaDark from '../assets/images/hero-media-dark.svg'
 
 const Hero: React.FC<App.HeroProps> = (props) => {
-
-  const [isLight, setLightSwitch] = useState(true)
-
-  const checkLights: React.ChangeEventHandler<HTMLInputElement> = (e) => {
-    const checked = e.target.checked
-    if (checked) {
-      document.body.classList.remove('lights-off')
-    } else {
-      document.body.classList.add('lights-off')
-    }
-    setLightSwitch(!checked)
-  }
 
   return (
     <section className="hero">
@@ -29,12 +17,6 @@ const Hero: React.FC<App.HeroProps> = (props) => {
             <p className="hero-paragraph">Our landing page template works on all devices, so you only have to set it up once, and get beautiful results forever.</p>
             <div className="hero-cta">
               <a className="button button-primary" href="#">Buy it now</a>
-              <div className="lights-toggle">
-                <input onChange={checkLights} id="lights-toggle" type="checkbox" name="lights-toggle" className="switch" defaultChecked={isLight} />
-                <label htmlFor="lights-toggle" className="text-xs">
-                  <span>Turn me</span>
-                </label>
-              </div>
             </div>
           </div>
           <div className="hero-media">
